@@ -75,3 +75,19 @@ DELETE FROM `usuarios`;
 DELETE FROM `cuentas`;
 DELETE FROM `eventos`;
 DELETE FROM `mercados`;
+
+INSERT INTO `apuestas` (`apuesta_id`, `mercado_ref`, `usuario_ref`, `dinero`) VALUES
+	(1, 0, 'bortmarc8', 15);
+
+INSERT INTO `eventos` (`eventos_id`, `local`, `visitante`, `mercado1_ref`, `mercado2_ref`, `mercado3_ref`) VALUES
+	(0, 'Heretics', 'G2 Esports', 0, 1, 2);
+
+INSERT INTO `mercados` (`mercado_id`, `dineroOver`, `dineroUnder`, `cuotaOver`, `cuotaUnder`, `tipo`) VALUES
+	(0, 0, 0, 0, 0, 'o_1_5'),
+	(1, 0, 0, 0, 0, 'o_2_5'),
+	(2, 0, 0, 0, 0, 'o_3_5');
+
+INSERT INTO `usuarios` (`email_id`, `nombre`, `apellido`, `edad`) VALUES
+	('bortmarc8', 'Mark', 'Bort Tomás', '2001-03-14');
+
+
