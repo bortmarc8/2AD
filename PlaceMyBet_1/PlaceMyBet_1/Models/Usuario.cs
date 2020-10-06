@@ -7,6 +7,11 @@ namespace PlaceMyBet_1.Models
 {
     public class Usuario
     {
+        public Usuario()
+        {
+
+        }
+
         public Usuario(string email_id, string nombre, string apellido, string edad)
         {
             this.email_id = email_id;

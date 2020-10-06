@@ -202,11 +202,16 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Common\MasterRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Apuesta.cs" />
+    <Compile Include="Models\ApuestasRepository.cs" />
+    <Compile Include="Models\UsuariosRepository.cs" />
+    <Compile Include="Models\MercadosRepository.cs" />
+    <Compile Include="Models\EventosRepository.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Mercado.cs" />
     <Compile Include="Models\Evento.cs" />
