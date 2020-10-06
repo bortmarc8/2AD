@@ -7,12 +7,7 @@ namespace PlaceMyBet_1.Models
 {
     public class Usuario
     {
-        public Usuario()
-        {
-
-        }
-
-        public Usuario(string email_id, string nombre, string apellido, string edad)
+        public Usuario(string email_id, string nombre, string apellido, DateTime edad)
         {
             this.email_id = email_id;
             this.nombre = nombre;
@@ -23,7 +18,6 @@ namespace PlaceMyBet_1.Models
         public string email_id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public string edad { get; set; }
-
+        public DateTime edad { get; set; }
     }
 }

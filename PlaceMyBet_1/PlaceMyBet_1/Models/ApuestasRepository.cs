@@ -16,7 +16,7 @@ namespace PlaceMyBet_1.Models
             List<ArrayList> datos = Common.MasterRepository.Leer("SELECT * FROM apuestas");
             foreach (var item in datos)
             {
-                apuestas.Add(new Apuesta((int)item[0], (int)item[1], item[2].ToString(), (int)item[3]));
+                apuestas.Add(new Apuesta((int)item[0], (int)item[1], item[2].ToString(), (float)item[3]));
             }
             return apuestas;
         } 

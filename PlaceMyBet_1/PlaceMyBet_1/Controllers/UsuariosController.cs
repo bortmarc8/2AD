@@ -10,22 +10,9 @@ namespace PlaceMyBet_1.Controllers
 {
     public class UsuariosController : ApiController
     {
-        // GET: api/Usuarios/5
-        public List<Usuario> Get() //Sobrecargar esto para que al llegarle un id haga el select from y el id con query parametrizada.
-        {
-            UsuariosRepository repo = new UsuariosRepository();
-            List<Usuario> query = repo.Retrieve();
-
-            return query;
-        }
-
-    public Usuario Get(int id) //Sobrecargar esto para que al llegarle un id haga el select from y el id con query parametrizada.
-        {
-            UsuariosRepository repo = new UsuariosRepository();
-            List<Usuario> query = repo.Retrieve(id);
-
-            return query;
-        }
+        //Maravillas da Jose <3
+        public List<Usuario> Get() => new UsuariosRepository().Retrieve();
+        public Usuario Get(string id) => new UsuariosRepository().Retrieve(id);
 
         // POST: api/Usuarios
         public void Post([FromBody]string value)
