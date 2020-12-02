@@ -15,27 +15,42 @@ namespace PlaceMyBet.Models
 
         }
 
-        internal List<MercadoDTO> Retrieve()
+        internal List<Mercado> Retrieve()
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "SELECT * FROM mercado";
+            command.CommandText = "SELECT Tipo,CuotaOver,CuotaUnder FROM `mercado`;";
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
-            //Mercado mercado = null;
-            MercadoDTO mercado = null;
-            List<MercadoDTO> mercados = new List<MercadoDTO>();
+            Mercado mercado = null;
+            List<Mercado> mercados = new List<Mercado>();
 
             while (res.Read())
             {
-                System.Diagnostics.Debug.WriteLine("Encontrado: "+res.GetString(1));
-                //mercado = new Mercado(res.GetInt32(0), res.GetString(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4), res.GetDouble(5), res.GetInt32(6));
-                mercado = new MercadoDTO(res.GetString(1));
+                mercado = new Mercado(res.GetInt32(0), res.GetString(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4), res.GetDouble(5), res.GetInt32(6));
                 mercados.Add(mercado);
             }
             con.Close();
-            System.Diagnostics.Debug.WriteLine(mercados.Count);
             return mercados;
+        }
+
+        internal Mercado Retrieve(int id)
+        {
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "SELECT * FROM mercado where idMercado = @id";
+            command.Parameters.AddWithValue("@id", id);
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
+            Mercado mercado = null;
+
+            while (res.Read())
+            {
+                mercado = new Mercado(res.GetInt32(0), res.GetString(1), res.GetDouble(2), res.GetDouble(3), res.GetDouble(4), res.GetDouble(5), res.GetInt32(6));
+            }
+            con.Close();
+            return mercado;
+
         }
 
     }

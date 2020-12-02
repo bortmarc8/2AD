@@ -15,9 +15,9 @@ namespace PlaceMyBet.Models
             this.Fecha = fecha;
         }
 
-        internal string EquipoLocal { get; set; }
-        internal string EquipoVisitante { get; set; }
-        internal DateTime Fecha { get; set; }
+        public string EquipoLocal { get; set; }
+        public string EquipoVisitante { get; set; }
+        public DateTime Fecha { get; set; }
 
     }
 
@@ -32,7 +32,7 @@ namespace PlaceMyBet.Models
             this.Fecha = fecha;
         }
 
-        internal int Id { get; set; }
-        internal int Goles { get; set; }
+        public int Id { get; set; }
+        public int Goles { get; set; }
     }
 }

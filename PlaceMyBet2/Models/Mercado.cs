@@ -18,23 +18,28 @@ namespace PlaceMyBet.Models
             IdPartido = idPartido;
         }
 
-        internal int IdMercado { get; set; }
-        internal string Tipo { get; set; }
-        internal double CuotaOver { get; set; }
-        internal double CuotaUnder { get; set; }
-        internal double DineroOver { get; set; }
-        internal double DineroUnder { get; set; }
-        internal int IdPartido { get; set; }
+        public int IdMercado { get; set; }
+        public string Tipo { get; set; }
+        public double CuotaOver { get; set; }
+        public double CuotaUnder { get; set; }
+        public double DineroOver { get; set; }
+        public double DineroUnder { get; set; }
+        public int IdPartido { get; set; }
     }
 
-    public class MercadoDTO
+    public class MercadoAll
     {
-        public MercadoDTO(string idMercado)
+        public MercadoAll(string tipo, double cuotaOver, double cuotaUnder)
         {
-            MercadoTipo = idMercado;
+            Tipo = tipo ?? throw new ArgumentNullException(nameof(tipo));
+            CuotaOver = cuotaOver;
+            CuotaUnder = cuotaUnder;
         }
 
-        internal string MercadoTipo { get; set; }
+        public string Tipo { get; set; }
+        public double CuotaOver { get; set; }
+        public double CuotaUnder { get; set; }
+
     }
 
 }

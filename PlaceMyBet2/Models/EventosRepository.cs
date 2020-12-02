@@ -22,13 +22,12 @@ namespace PlaceMyBet.Models
             command.CommandText = "SELECT EquipoLocal,EquipoVisitante,Fecha FROM `partido`";
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
-            Evento evento = new Evento("VLC", "Barcelona", DateTime.Now);
+            Evento evento = null;
             List<Evento> eventos = new List<Evento>();
 
             while (res.Read())
             {
-                //evento = new Evento(res.GetString(0), res.GetString(1), res.GetMySqlDateTime(2));
-                //evento = new Evento("VLC", "Barcelona", DateTime.Now);
+                evento = new Evento(res.GetString(0), res.GetString(1), res.GetDateTime(2));
                 eventos.Add(evento);
             }
             con.Close();
