@@ -102,7 +102,7 @@ namespace PlaceMyBet.Models
                         command.Parameters.AddWithValue("@cuota", cuotaUnder);
                     }
 
-                    command.Parameters.AddWithValue("@dinero", obj.Dinero);
+                    command.Parameters.AddWithValue("@dinero", obj.Dinero);     
                     command.Parameters.AddWithValue("@tipoApuesta", obj.TipoApuesta);
                     command.Parameters.AddWithValue("@idMercado", obj.IdMercado);
                     command.Parameters.AddWithValue("@correoUsuario", obj.CorreoUsuario);
@@ -122,7 +122,7 @@ namespace PlaceMyBet.Models
                         updateMercados.Parameters.AddWithValue("@idMercado", obj.IdMercado);
 
                         con.Open();
-                        Debug.WriteLine("No peta antes de la linea 120");
+                        Debug.WriteLine("No peta antes de la linea 120: " + obj.IdMercado);
                         retorno = updateMercados.ExecuteNonQuery();
                         Debug.WriteLine("No peta antes de la linea 122");
                         if (retorno > 0)
@@ -148,7 +148,7 @@ namespace PlaceMyBet.Models
                     return false;
                 }
             }
-            catch(Exception ex) //Da error en el catch -> You have specified an invalid column ordinal.
+            catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 return false;
