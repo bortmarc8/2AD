@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Helpers;
+using System.Web.Http;
 
 namespace PlaceMyBet.Models
 {
@@ -56,15 +57,24 @@ namespace PlaceMyBet.Models
             return apuesta;
         }
 
+        [Authorize(Roles = "Admin")]
+        internal Apuesta Retrieve(Usuario user)
+        {
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "SELECT * FROM `apuesta` WHERE correoUsuario = @id;";
+            command.Parameters.AddWithValue("@id", user.Correo);
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
+            Apuesta apuesta = null;
 
-
-
-
-
-
-
-
-
+            if (res.Read())
+            {
+                apuesta = new Apuesta(res.GetInt32(0), res.GetDouble(1), res.GetDouble(2), res.GetBoolean(3), res.GetDateTime(4), res.GetInt32(5), res.GetString(6));
+            }
+            con.Close();
+            return apuesta;
+        }
 
         internal bool Upload(Apuesta obj)
         {

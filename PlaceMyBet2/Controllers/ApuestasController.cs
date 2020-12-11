@@ -25,6 +25,7 @@ namespace PlaceMyBet.Controllers
         }
 
         // POST: api/Apuestas
+        [Authorize]
         public bool Post([FromBody]Apuesta apuesta)
         {
             ApuestasRepository repo = new ApuestasRepository();
