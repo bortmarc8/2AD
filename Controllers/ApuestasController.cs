@@ -18,9 +18,8 @@ namespace PlaceMyBet.Controllers
             return repo.Retrieve();
         }
 
-        // GET: api/Apuestas/5
-        [Authorize]
-        public Apuesta Get(int id)
+        //Funcion de examen: Ejercicio 2
+        public List<Apuesta> Get(int id)
         {
             ApuestasRepository repo = new ApuestasRepository();
             return repo.Retrieve(id);
@@ -32,6 +31,7 @@ namespace PlaceMyBet.Controllers
             return repo.Retrieve(user, tipo);
         }
 
+        //Funcion de examen: Ejercicio 1
         public List<Apuesta> Get(double cuotaMin, double cuotaMax)
         {
             ApuestasRepository repo = new ApuestasRepository();

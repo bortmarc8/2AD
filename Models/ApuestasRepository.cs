@@ -40,6 +40,7 @@ namespace PlaceMyBet.Models
             return apuestas;
         }
 
+        //Funcion de examen: Ejercicio 1
         internal List<Apuesta> Retrieve(double min, double max)
         {
             MySqlConnection con = Connect();
@@ -61,22 +62,25 @@ namespace PlaceMyBet.Models
             return apuestas;
         }
 
-        internal Apuesta Retrieve(int id)
+        //Funcion de examen: Ejercicio 2
+        internal List<Apuesta> Retrieve(int id)
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "SELECT * FROM `apuesta` WHERE idApuesta = @id;";
+            command.CommandText = "SELECT apuesta.idApuesta, apuesta.Dinero, apuesta.Cuota, apuesta.TipoApuesta, apuesta.fecha, apuesta.idMercado, apuesta.correoUsuario FROM `apuesta` where apuesta.idMercado = @id and apuesta.Dinero > 100;";
             command.Parameters.AddWithValue("@id", id);
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
             Apuesta apuesta = null;
+            List<Apuesta> apuestas = new List<Apuesta>();
 
-            if (res.Read())
+            while (res.Read())
             {
                 apuesta = new Apuesta(res.GetInt32(0), res.GetDouble(1), res.GetDouble(2), res.GetBoolean(3), res.GetDateTime(4), res.GetInt32(5), res.GetString(6));
+                apuestas.Add(apuesta);
             }
             con.Close();
-            return apuesta;
+            return apuestas;
         }
 
         internal List<ApuestasUsuarioMercado> Retrieve(string user, string tipo)
