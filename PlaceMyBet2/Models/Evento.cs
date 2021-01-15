@@ -1,38 +1,28 @@
-﻿using MySql.Data.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace PlaceMyBet.Models
 {
     public class Evento
     {
-        public Evento(string equipoLocal, string equipoVisitante, DateTime fecha)
+        public Evento()
         {
-            EquipoLocal = equipoLocal;
-            EquipoVisitante = equipoVisitante;
-            this.Fecha = fecha;
+
         }
 
+        public Evento(int eventoId, string equipoLocal, string equipoVisitante, int goles, DateTime fecha)
+        {
+            EventoId = eventoId;
+            EquipoLocal = equipoLocal ?? throw new ArgumentNullException(nameof(equipoLocal));
+            EquipoVisitante = equipoVisitante ?? throw new ArgumentNullException(nameof(equipoVisitante));
+            Goles = goles;
+            Fecha = fecha;
+        }
+
+        public int EventoId { get; set; }
         public string EquipoLocal { get; set; }
         public string EquipoVisitante { get; set; }
+        public int Goles { get; set; }
         public DateTime Fecha { get; set; }
 
-    }
-
-    public class EventoAll : Evento 
-    {
-        public EventoAll(string equipoLocal, string equipoVisitante, DateTime fecha, int id, int goles) : base (equipoLocal, equipoVisitante, fecha)
-        {
-            EquipoLocal = equipoLocal;
-            this.Id = id;
-            EquipoVisitante = equipoVisitante;
-            this.Goles = goles;
-            this.Fecha = fecha;
-        }
-
-        public int Id { get; set; }
-        public int Goles { get; set; }
     }
 }

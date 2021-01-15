@@ -14,7 +14,7 @@ namespace PlaceMyBet.Controllers
         // GET: api/Users
         public List<Usuario> Get()
         {
-            return new UsuariosRepository().Retrieve();
+            return new List<Usuario>();
         }
 
         // GET: api/Users/5

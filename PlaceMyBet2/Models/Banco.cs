@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PlaceMyBet.Models
 {
     public class Banco
     {
-        public Banco(int idBanco, double saldo, string nombre, int numTarjeta, string correoUsuario)
+        public Banco()
         {
-            this.idBanco = idBanco;
-            this.saldo = saldo;
-            this.nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
-            this.numTarjeta = numTarjeta;
-            this.correoUsuario = correoUsuario ?? throw new ArgumentNullException(nameof(correoUsuario));
+
         }
 
-        internal int idBanco { get; set; }
-        internal double saldo { get; set; }
-        internal string nombre { get; set; }
-        internal int numTarjeta { get; set; }
-        internal string correoUsuario { get; set; }
+        public Banco(int bancoId, double saldo, string nombre, int numTarjeta, Usuario usuario, string usuarioId)
+        {
+            BancoId = bancoId;
+            Saldo = saldo;
+            Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
+            NumTarjeta = numTarjeta;
+            Usuario = usuario ?? throw new ArgumentNullException(nameof(usuario));
+            UsuarioId = usuarioId ?? throw new ArgumentNullException(nameof(usuarioId));
+        }
+
+        public int BancoId { get; set; }
+        public double Saldo { get; set; }
+        public string Nombre { get; set; }
+        public int NumTarjeta { get; set; }
+        public Usuario Usuario { get; set; }
+        public string UsuarioId { get; set; }
+
     }
 }

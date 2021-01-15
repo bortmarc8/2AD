@@ -13,13 +13,13 @@ namespace PlaceMyBet.Controllers
         // GET: api/Mercsdos
         public List<Mercado> Get()
         {
-            return new MercadosRepository().Retrieve();
+            return new List<Mercado>();
         }
 
         // GET: api/Mercsdos/5
-        public Mercado Get(int id)
+        public void Get(int id)
         {
-            return new MercadosRepository().Retrieve(id);
+
         }
 
         // POST: api/Mercsdos

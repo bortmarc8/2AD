@@ -13,13 +13,13 @@ namespace PlaceMyBet.Controllers
         // GET: api/Eventos
         public List<Evento> Get()
         {
-            return new EventosRepository().Retrieve();
+            return new List<Evento>();
         }
 
         // GET: api/Eventos/5
-        public Evento Get(int id)
+        public void Get(int id)
         {
-            return new EventosRepository().Retrieve(id);
+
         }
 
         // POST: api/Eventos

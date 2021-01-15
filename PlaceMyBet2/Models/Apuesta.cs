@@ -1,50 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PlaceMyBet.Models
 {
     public class Apuesta
     {
-        public Apuesta(int idApuesta, double dinero, double cuota, bool tipoApuesta, DateTime fecha, int idMercado, string correoUsuario)
+        public Apuesta()
         {
-            IdApuesta = idApuesta;
+
+        }
+
+        public Apuesta(int apuestaId, double dinero, double cuota, bool tipoApuesta, DateTime fecha, Mercado mercado, int mercadoId, Usuario usuario, string usuarioId)
+        {
+            ApuestaId = apuestaId;
             Dinero = dinero;
             Cuota = cuota;
             TipoApuesta = tipoApuesta;
             Fecha = fecha;
-            IdMercado = idMercado;
-            CorreoUsuario = correoUsuario ?? throw new ArgumentNullException(nameof(correoUsuario));
+            Mercado = mercado ?? throw new ArgumentNullException(nameof(mercado));
+            MercadoId = mercadoId;
+            Usuario = usuario ?? throw new ArgumentNullException(nameof(usuario));
+            UsuarioId = usuarioId ?? throw new ArgumentNullException(nameof(usuarioId));
         }
 
-        public int IdApuesta { get; set; }
+        public int ApuestaId { get; set; }
         public double Dinero { get; set; }
         public double Cuota { get; set; }
         public bool TipoApuesta { get; set; }
         public DateTime Fecha { get; set; }
-        public int IdMercado { get; set; }
-        public string CorreoUsuario { get; set; }
-    }
-
-    public class ApuestaAll
-    {
-        public ApuestaAll(string correoUsuario, string tipoMercado, double cuota, bool tipoApuesta, double dinero, DateTime fecha)
-        {
-            CorreoUsuario = correoUsuario ?? throw new ArgumentNullException(nameof(correoUsuario));
-            TipoMercado = tipoMercado ?? throw new ArgumentNullException(nameof(tipoMercado));
-            TipoApuesta = tipoApuesta;
-            Cuota = cuota;
-            Dinero = dinero;
-            Fecha = fecha;
-        }
-
-        public string CorreoUsuario { get; set; }
-        public string TipoMercado { get; set; }
-        public bool TipoApuesta { get; set; }
-        public double Cuota { get; set; }
-        public double Dinero { get; set; }
-        public DateTime Fecha { get; set; }
+        public Mercado Mercado { get; set; }
+        public int MercadoId { get; set; }
+        public Usuario Usuario { get; set; }
+        public string UsuarioId { get; set; }
 
     }
+
 }
